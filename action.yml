@@ -11,9 +11,12 @@ inputs:
   openAI:
     description: 'OpenAI Token'
     default: ''
+  gemini:
+    description: 'Google Gemini Token'
+    default: ''
   model:
     description: 'AI model to use'
-    default: 'gpt-3.5-turbo-1106'
+    default: 'gemini-2.5-flash'
   filter:
     description: 'Lines in the issue text matching these prefixes will be removed prior to LLM evaluation'
     default: ''
@@ -22,6 +25,9 @@ inputs:
     default: ''
   logic:
     description: 'Logic expressions and corresponding actions'
+    default: ''
+  signature:
+    description: 'Optional text the issue whiz bot should add at the end of a message when communicating with users'
     default: ''
 runs:
   using: 'node20'

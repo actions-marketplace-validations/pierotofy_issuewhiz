@@ -7,9 +7,11 @@
 [![GitHub Forks](https://img.shields.io/github/forks/pierotofy/issuewhiz)](https://github.com/pierotofy/issuewhiz/network/members)
 [![GitHub Release](https://img.shields.io/github/v/release/pierotofy/issuewhiz)](https://github.com/pierotofy/issuewhiz/releases)
 
-![IssueWhiz](https://github.com/pierotofy/issuewhiz/assets/1951843/f41c231d-4fd8-4ff1-8072-bf3703b158fa)
+<img width="373" height="347" alt="IssueWhiz" src="https://github.com/user-attachments/assets/822a481e-7c20-401f-b547-9fd8fe3a7441" />
 
 IssueWhiz automates the triaging of issues in your repositories. It helps streamline the process of categorizing issues and enforcing project's guidelines using customizable and flexible rules.
+
+**New**: Added support for Google Gemini.
 
 ## Features
 
@@ -47,11 +49,17 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: pierotofy/issuewhiz@v1
+      - uses: pierotofy/issuewhiz@v2
         with:
-          # Your OpenAI token (https://platform.openai.com/api-keys)
+          # Your Gemini API token (https://aistudio.google.com/app/api-keys)
           # Added to : https://github.com/<repo>/<name>/settings/secrets actions
-          openAI: ${{ secrets.OPENAI_TOKEN }}
+          gemini: ${{ secrets.GEMINI_TOKEN }}
+          model: 'gemini-2.5-flash'
+
+          # - OR - your OpenAI token (https://platform.openai.com/api-keys)
+          # Added to : https://github.com/<repo>/<name>/settings/secrets actions
+          # openAI: ${{ secrets.OPENAI_TOKEN }}
+          # model: 'gpt-3.5-turbo-1106'
 
           # GitHub Token with write access to repository issues
           # (you can leave this unless you want to use a different user that "github-actions")
